@@ -88,3 +88,17 @@ function calcularProduto(numero) {
 
 let numero = [1, 2, 3, 4, 5];
 console.log(calcularProduto(numero));
+
+//EXERCICIO 6, FUNÇÃO DE ALTA ORDEM
+
+function transformarArray(array, transformacao) {
+  let novoArray = array.map(transformacao);
+  return novoArray;
+}
+
+function dobrar(numero) {
+  return numero * 2;
+}
+
+let numeros2 = [1, 2, 3, 4, 5];
+console.log(transformarArray(numeros2, dobrar));
