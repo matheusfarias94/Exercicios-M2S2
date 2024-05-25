@@ -36,22 +36,43 @@ let produtos = [
 ];
 
 function agruparPorCategoria(produtos) {
-    // Agrupa os produtos por categoria e calcula a soma dos preços
-    let somaPorCategoria = produtos.reduce((acumulador, produtoAtual) => {
-      const chave = produtoAtual.categoria;
-      
-      // Se a categoria já existe no acumulador, adiciona o preço atual à soma existente
-      if (acumulador[chave]) {
-        acumulador[chave] += produtoAtual.preco;
-      } else {
-        // Caso contrário, cria uma nova entrada com a categoria e o preço atual
-        acumulador[chave] = produtoAtual.preco;
-      }
-      
-      return acumulador;
-    }, {});
-    
-    return somaPorCategoria;
-  }
-  
-  console.log(agruparPorCategoria(produtos));
+  // Agrupa os produtos por categoria e calcula a soma dos preços
+  let somaPorCategoria = produtos.reduce((acumulador, produtoAtual) => {
+    const chave = produtoAtual.categoria;
+
+    // Se a categoria já existe no acumulador, adiciona o preço atual à soma existente
+    if (acumulador[chave]) {
+      acumulador[chave] += produtoAtual.preco;
+    } else {
+      // Caso contrário, cria uma nova entrada com a categoria e o preço atual
+      acumulador[chave] = produtoAtual.preco;
+    }
+
+    return acumulador;
+  }, {});
+
+  return somaPorCategoria;
+}
+
+console.log(agruparPorCategoria(produtos));
+
+//EXERCICIO 4 FUNÇÕES QUE RETORNAM FUNÇÕES(CLOSURES)
+
+function contador() {
+  let contador1 = 0;
+  let contador2 = 0;
+  return function () {
+    contador1 += 1;
+    contador2 += 1;
+    return contador1, contador2;
+  };
+}
+
+let contador1 = contador();
+console.log(contador1());
+console.log(contador1());
+console.log(contador1());
+
+let contador2 = contador();
+console.log(contador2());
+console.log(contador2());
