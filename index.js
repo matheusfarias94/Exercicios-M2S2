@@ -76,3 +76,15 @@ console.log(contador1());
 let contador2 = contador();
 console.log(contador2());
 console.log(contador2());
+
+// EXERCICIO 5, REDUÇÃO DE ARRAYS
+
+function calcularProduto(numero) {
+  let multiplicaNumeros = numero.reduce((total, num) => {
+    return total * num;
+  }, 1);
+  return multiplicaNumeros;
+}
+
+let numero = [1, 2, 3, 4, 5];
+console.log(calcularProduto(numero));
