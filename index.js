@@ -92,7 +92,9 @@ console.log(calcularProduto(numero));
 //EXERCICIO 6, FUNÇÃO DE ALTA ORDEM
 
 function transformarArray(array, transformacao) {
-  let novoArray = array.map(transformacao);
+  let novoArray = array.map((item) => {
+    return transformacao(item)
+  });
   return novoArray;
 }
 
@@ -102,3 +104,24 @@ function dobrar(numero) {
 
 let numeros2 = [1, 2, 3, 4, 5];
 console.log(transformarArray(numeros2, dobrar));
+
+
+//EXERCICIO 7, COMPOSIÇÃO DE FUNÇÕES
+
+function compor(f, g) {
+  return function(x){
+    return f(g(x))
+  }
+  }
+  
+  function somar1(x) {
+  return x + 1;
+  }
+  
+  function multiplicar2(x) {
+  return x * 2;
+  }
+  
+  let funcaoComposta = compor(somar1, multiplicar2);
+  console.log(funcaoComposta(5)); // 11 (multiplicar2(5) = 10, somar1(10) = 11)
+  
